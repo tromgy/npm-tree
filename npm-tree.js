@@ -84,7 +84,7 @@ function buildFromTemplate(htmlTree) {
 
     // Self-destruct in 5 sec
     setTimeout(() => {
-      fs.rmSync(outputName);
+      fs.unlinkSync(outputName);
     }, 5000);
   }
 }
@@ -125,7 +125,7 @@ if (!generateSite) {
   }
 
   fs.copyFileSync(outputName, path.join(distDest, outputName));
-  fs.rmSync(outputName);
+  fs.unlinkSync(outputName);
   fs.copyFileSync('npm-tree.ico', path.join(distDest, 'npm-tree.ico'));
   fs.copyFileSync('npm-tree.png', path.join(distDest, 'npm-tree.png'));
 }
