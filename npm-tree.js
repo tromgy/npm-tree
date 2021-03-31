@@ -25,6 +25,8 @@ const path = require('path');
 
 const { processList } = require('./lib/gen-tree');
 
+const BRANCH_CLOSED_SYMBOL = '+';
+
 const saveOutput = process.argv.length > 2 && process.argv[2] === '--save';
 const generateSite = process.argv.length > 2 && process.argv[2] === '--site';
 
@@ -113,7 +115,7 @@ if (!generateSite) {
     }
 
     try {
-      buildFromTemplate(processList(stdout));
+      buildFromTemplate(processList(stdout), BRANCH_CLOSED_SYMBOL);
     } catch (err) {
       console.log(err.message);
     }
