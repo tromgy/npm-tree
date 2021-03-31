@@ -1,1 +1,39 @@
 # npm-tree
+
+A tool to aid in analyzing npm (and yarn) package dependencies.
+
+## Usage
+
+It can be used either as a command-line utility, or as a pure online solution, available at [http://TBD.com](http://TBD.com).
+
+### Command line
+
+To run it as a command-line tool you can install it globally:
+
+```Shell
+    npm install npm-tree -g
+```
+
+and run it in your project directory (the one that contains **package.json**):
+
+```Shell
+    npm-tree
+```
+
+or run it via **npx** (also in your project directory):
+
+```Shell
+    npx npm-tree
+```
+
+When you run it, it will create an HTML file containing the same dependency information as the output from **npm list**, but in a collapsible, searchable tree and display this HTML file in your default browser:
+
+![screen-1-annotated](https://user-images.githubusercontent.com/12632548/113087209-24f1d700-91b1-11eb-9a2e-6bce9dda520e.png)
+
+This file is removed automatically once it's loaded in the browser.
+
+### Online
+
+To use it online, you can just drop the text file containing the output from **npm list** or **yarn list**:
+
+It will be processed right in the browser and the same searchable tree will be shown.
