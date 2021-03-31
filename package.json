@@ -1,0 +1,44 @@
+{
+  "name": "npm-tree",
+  "version": "1.0.0",
+  "description": "A convenience tool on top of 'npm list'. Presents the the packages in a collapsible tree with search and dependency path capabilities.",
+  "main": "npm-tee.js",
+  "bin": "npm-tree.js",
+  "scripts": {
+    "test": "node npm-tree --save && jest",
+    "lint": "eslint .",
+    "make": "node npm-tree --site && prettier --write dist",
+    "build": "npm run lint && npm run test && npm run make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tromgy/npm-tree.git"
+  },
+  "keywords": [
+    "npm",
+    "node.js",
+    "dependency",
+    "dependencies"
+  ],
+  "author": "Tromgy (tromgy@yahoo.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "@testing-library/dom": "^7.30.1",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/user-event": "^13.0.16",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "jest": "^26.6.3",
+    "jsdom": "^16.5.2",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "open": "^8.0.4"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.3",
+    "ts-node": "^9.1.1",
+    "utf-8-validate": "^5.0.4"
+  }
+}

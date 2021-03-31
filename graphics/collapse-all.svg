@@ -1,0 +1,14 @@
+<svg viewBox="0 0 500 500">
+  <line style="stroke-dasharray: 30px; stroke-dashoffset: 7px" x1="106.142" y1="89.088" x2="255.145" y2="89.088" />
+  <line style="stroke-dasharray: 30px; stroke-dashoffset: 7px" x1="106.142" y1="205.307" x2="255.145" y2="205.307" />
+  <line style="stroke-dasharray: 30px; stroke-dashoffset: 7px" x1="106.142" y1="147.198" x2="255.145" y2="147.198" />
+  <line style="stroke-dasharray: 30px; stroke-dashoffset: 7px" x1="106.142" y1="263.417" x2="255.145" y2="263.417" />
+  <line style="stroke-dasharray: 30px; stroke-dashoffset: 7px" x1="106.142" y1="321.526" x2="255.145" y2="321.526" />
+  <line style="stroke-dasharray: 30px; stroke-dashoffset: 7px" x1="32.835" y1="30.979" x2="289.621" y2="30.979" />
+  <line style="stroke-dasharray: 30px; stroke-dashoffset: 7px" x1="106.142" y1="379.636" x2="255.145" y2="379.636" />
+  <g transform="matrix(1, 0, 0, 1, -11.220118, -11.77985)">
+    <line x1="500" y1="500" x2="405.9" y2="405.9" transform="matrix(-1, 0, 0, -1, 905.899994, 905.899994)" />
+    <line x1="405.924" y1="405.924" x2="405.924" y2="484.298" transform="matrix(-1, 0, 0, -1, 811.848022, 890.222015)" />
+    <line x1="405.924" y1="405.924" x2="484.324" y2="405.924" transform="matrix(-1, 0, 0, -1, 890.248016, 811.848022)" />
+  </g>
+</svg>

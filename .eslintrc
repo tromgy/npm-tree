@@ -1,0 +1,26 @@
+{
+  "env": {
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 12
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "rules": {
+    "no-underscore-dangle": "off",
+    "object-curly-newline": "off",
+    "no-multi-spaces": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "no-console": "off",
+    "no-continue": "off",
+    "no-use-before-define": ["error", { "functions": false }],
+    "prefer-destructuring": [
+      "warn",
+      {
+        "array": false,
+        "object": true
+      }
+    ]
+  }
+}

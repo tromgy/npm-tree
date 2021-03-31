@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="#icon-path/npm-tree.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="#icon-path/npm-tree.png" />
+    <title>npm-tree</title>
+    <!--
+    <style>
+      #styles/main.css
+      %styles/drop.css
+    </style>
+    -->
+  </head>
+
+  <body>
+    <!--
+      %templates/drop.html
+    -->
+    <header>
+      <div>
+        <button onclick="collapseAll(false)" title="Expand all" tabindex="1">
+          <!--
+            #graphics/expand-all.svg
+          -->
+        </button>
+        <button onclick="collapseAll(true)" title="Collapse all" tabindex="2">
+          <!--
+            #graphics/collapse-all.svg
+          -->
+        </button>
+      </div>
+      <div id="title">
+        <!--
+          #graphics/logo.svg
+        -->
+        npm-tree
+      </div>
+      <div>
+        <div id="search-container">
+          <!--
+            #graphics/whole-word-search.svg
+          -->
+          <input
+            id="search"
+            type="search"
+            placeholder="🔍"
+            oninput="find()"
+            title="You can search using string literals or JavaScript regular expressions"
+            tabindex="3"
+          />
+        </div>
+        <button onclick="findNext()" title="Find next" tabindex="4">
+          <!-- 
+            #graphics/find-next.svg
+          -->
+        </button>
+        <button onclick="findPrev()" title="Find previous" tabindex="5">
+          <!-- 
+            #graphics/find-prev.svg
+          -->
+        </button>
+      </div>
+    </header>
+    <div id="wait-shade" class="wait-shade hidden"></div>
+    <main id="tree" onclick="clearSelected(lastSelectedDependency)">
+      <!--
+      $generated-tree
+      -->
+    </main>
+    <footer id="path">&nbsp;</footer>
+
+    <!--
+    <script>
+      #lib/main.js
+      %lib/drop.js
+      %lib/gen-tree.js
+    </script>
+    -->
+  </body>
+</html>
