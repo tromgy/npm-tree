@@ -1,10 +1,10 @@
 # npm-tree
 
-A tool to aid in analyzing npm (and yarn) package dependencies.
+A tool to aid in analyzing npm (or yarn) package dependencies.
 
 ## Usage
 
-It can be used either as a command-line utility, or as a pure online solution, available at [http://TBD.com](http://TBD.com).
+It can be used either as a command-line utility, or as a pure online solution, available at [https://npm-tree.netlify.app](http://npm-tree.netlify.app).
 
 ### Command line
 
@@ -35,5 +35,8 @@ This file is removed automatically once it's loaded in the browser.
 ### Online
 
 To use it online, you can just drop the text file containing the output from **npm list** or **yarn list**:
+
+<img width="1362" alt="screen-2" src="https://user-images.githubusercontent.com/12632548/113152299-ff41ed80-9203-11eb-9ba5-d0e4e1964b91.png">
+
 
 It will be processed right in the browser and the same searchable tree will be shown.
