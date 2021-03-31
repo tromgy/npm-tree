@@ -240,8 +240,7 @@ describe('npm-tree tests', () => {
       expect(firstResult).toBeVisible();
       expect(firstResult.scrollIntoView).toBeCalled();
 
-      const expectedPath =
-        'npm-tree ▷ eslint-config-airbnb-base ▷ eslint-plugin-import ▷ array-includes ▷ get-intrinsic ▷ has';
+      const expectedPath = 'npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ has';
       const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
       expect(footer).toHaveTextContent(expectedPath);
@@ -250,19 +249,22 @@ describe('npm-tree tests', () => {
   });
 
   test('Dependency can be highlighted by click', () => {
-    const itemToClick = dom.getAllByText(root, 'is-string')[0];
+    const itemToClick = dom.getAllByText(root, 'is-negative-zero')[0];
+    const previouslySelected = dom.getAllByText(root, 'has')[0];
 
+    expect(
+      previouslySelected.parentElement.parentElement.parentElement ===
+        itemToClick.parentElement.parentElement.parentElement
+    ).toBeTruthy();
     expect(itemToClick).toBeInTheDocument();
     expect(itemToClick).toBeVisible();
 
     userEvent.click(itemToClick);
 
-    const previouslySelected = dom.getAllByText(root, 'has')[0];
-
     expect(itemToClick).toHaveClass('selected');
     expect(previouslySelected).not.toHaveClass('selected');
 
-    const expectedPath = 'npm-tree ▷ eslint-config-airbnb-base ▷ eslint-plugin-import ▷ array-includes ▷ is-string';
+    const expectedPath = 'npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ is-negative-zero';
     const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
     expect(footer).toHaveTextContent(expectedPath);
@@ -270,7 +272,7 @@ describe('npm-tree tests', () => {
   });
 
   test('Highlight can be cleared by click', () => {
-    const previouslySelected = dom.getAllByText(root, 'is-string')[0];
+    const previouslySelected = dom.getAllByText(root, 'is-negative-zero')[0];
 
     userEvent.click(main);
 
