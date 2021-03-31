@@ -115,7 +115,7 @@ if (!generateSite) {
     }
 
     try {
-      buildFromTemplate(processList(stdout), BRANCH_CLOSED_SYMBOL);
+      buildFromTemplate(processList(stdout, BRANCH_CLOSED_SYMBOL));
     } catch (err) {
       console.log(err.message);
     }
