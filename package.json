@@ -1,6 +1,6 @@
 {
   "name": "@tromgy/npm-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A convenience tool on top of 'npm list'. Presents the the dependent packages in a collapsible tree with search and dependency path capabilities.",
   "main": "npm-tee.js",
   "bin": "npm-tree.js",
