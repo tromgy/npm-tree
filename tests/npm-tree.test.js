@@ -127,7 +127,7 @@ describe('npm-tree tests', () => {
       expect(firstResult.scrollIntoView).toBeCalled();
 
       const expectedPath =
-        'npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
+        '@tromgy/npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
       const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
       expect(footer).toHaveTextContent(expectedPath);
@@ -146,7 +146,7 @@ describe('npm-tree tests', () => {
     expect(thisResult).toBeVisible();
     expect(thisResult.scrollIntoView).toBeCalled();
 
-    const expectedPath = 'npm-tree ▷ @testing-library/dom ▷ chalk ▷ supports-color ▷ has-flag';
+    const expectedPath = '@tromgy/npm-tree ▷ @testing-library/dom ▷ chalk ▷ supports-color ▷ has-flag';
     const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
     expect(footer).toHaveTextContent(expectedPath);
@@ -165,7 +165,7 @@ describe('npm-tree tests', () => {
     expect(thisResult.scrollIntoView).toBeCalled();
 
     const expectedPath =
-      'npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
+      '@tromgy/npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
     const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
     expect(footer).toHaveTextContent(expectedPath);
@@ -184,7 +184,7 @@ describe('npm-tree tests', () => {
     expect(thisResult).toBeVisible();
     expect(thisResult.scrollIntoView).toBeCalled();
 
-    let expectedPath = 'npm-tree ▷ jest ▷ @jest/core ▷ jest-snapshot ▷ jest-haste-map';
+    let expectedPath = '@tromgy/npm-tree ▷ jest ▷ @jest/core ▷ jest-snapshot ▷ jest-haste-map';
     let expectedToolTip = expectedPath.replace(/▷/g, '>');
 
     expect(footer).toHaveTextContent(expectedPath);
@@ -202,7 +202,7 @@ describe('npm-tree tests', () => {
     expect(thisResult.scrollIntoView).toBeCalled();
 
     expectedPath =
-      'npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
+      '@tromgy/npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
     expectedToolTip = expectedPath.replace(/▷/g, '>');
 
     expect(footer).toHaveTextContent(expectedPath);
@@ -220,7 +220,7 @@ describe('npm-tree tests', () => {
       expect(firstResult).toBeVisible();
       expect(firstResult.scrollIntoView).toBeCalled();
 
-      const expectedPath = 'npm-tree ▷ @testing-library/jest-dom ▷ @types/testing-library__jest-dom';
+      const expectedPath = '@tromgy/npm-tree ▷ @testing-library/jest-dom ▷ @types/testing-library__jest-dom';
       const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
       expect(footer).toHaveTextContent(expectedPath);
@@ -240,7 +240,7 @@ describe('npm-tree tests', () => {
       expect(firstResult).toBeVisible();
       expect(firstResult.scrollIntoView).toBeCalled();
 
-      const expectedPath = 'npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ has';
+      const expectedPath = '@tromgy/npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ has';
       const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
       expect(footer).toHaveTextContent(expectedPath);
@@ -264,7 +264,8 @@ describe('npm-tree tests', () => {
     expect(itemToClick).toHaveClass('selected');
     expect(previouslySelected).not.toHaveClass('selected');
 
-    const expectedPath = 'npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ is-negative-zero';
+    const expectedPath =
+      '@tromgy/npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ is-negative-zero';
     const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
     expect(footer).toHaveTextContent(expectedPath);

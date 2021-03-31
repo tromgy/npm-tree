@@ -11,7 +11,7 @@ It can be used either as a command-line utility, or as a pure online solution, a
 To run it as a command-line tool you can install it globally:
 
 ```Shell
-    npm install npm-tree -g
+    npm install @tromgy/npm-tree -g
 ```
 
 and run it in your project directory (the one that contains **package.json**):
@@ -23,7 +23,7 @@ and run it in your project directory (the one that contains **package.json**):
 or run it via **npx** (also in your project directory):
 
 ```Shell
-    npx npm-tree
+    npx @tromgy/npm-tree
 ```
 
 When you run it, it will create an HTML file containing the same dependency information as the output from **npm list**, but in a collapsible, searchable tree and display this HTML file in your default browser:
