@@ -5,6 +5,9 @@ const fs = require('fs');
 const { JSDOM } = require('jsdom');
 require('@testing-library/jest-dom');
 
+const BRANCH_OPEN_SYMBOL = '-';
+const BRANCH_CLOSED_SYMBOL = '+';
+
 let root;
 
 // Object.prototype.scrollIntoView = () => {
@@ -80,7 +83,7 @@ describe('npm-tree tests', () => {
   });
 
   test('A tree branch can be expanded', () => {
-    const bullets = dom.getAllByText(root, '▶︎');
+    const bullets = dom.getAllByText(root, BRANCH_CLOSED_SYMBOL);
 
     expect(bullets.length).toBeGreaterThan(0);
 
@@ -94,12 +97,12 @@ describe('npm-tree tests', () => {
     expect(bullets[1]).toBeVisible();
 
     // And the toggled bullet should change
-    expect(toggle).toHaveTextContent('▼');
+    expect(toggle).toHaveTextContent(BRANCH_OPEN_SYMBOL);
   });
 
   test('A tree branch can be collapsed', () => {
-    const bulletsExpand = dom.getAllByText(root, '▶︎');
-    const bulletsCollapse = dom.getAllByText(root, '▼');
+    const bulletsExpand = dom.getAllByText(root, BRANCH_CLOSED_SYMBOL);
+    const bulletsCollapse = dom.getAllByText(root, BRANCH_OPEN_SYMBOL);
 
     expect(bulletsExpand.length).toBeGreaterThan(0);
     expect(bulletsCollapse.length).toBeGreaterThan(0);
@@ -113,7 +116,7 @@ describe('npm-tree tests', () => {
     expect(bulletsExpand[0]).not.toBeVisible();
 
     // And the toggled bullet should change
-    expect(toggle).toHaveTextContent('▶︎');
+    expect(toggle).toHaveTextContent(BRANCH_CLOSED_SYMBOL);
   });
 
   test('Search works', async () => {

@@ -103,13 +103,13 @@ function mergeFromFile(filePath) {
 
 // Main
 if (!generateSite) {
-  cp.execFile('npm', ['list', '--all'], (error, stdout, stderr) => {
+  cp.exec('npm list --all', (error, stdout, stderr) => {
     if (error) {
-      console.log(error);
+      console.log(`\n############ Warning: npm reported errors generating dependency tree ###########`);
     }
 
     if (stderr) {
-      console.log(`npm list had errors: ${stderr}`);
+      console.log(`\n${stderr}`);
     }
 
     try {

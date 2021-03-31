@@ -6,6 +6,10 @@ A tool to aid in analyzing npm (or yarn) package dependencies.
 
 It can be used either as a command-line utility, or as a pure online solution, available at [https://npm-tree.netlify.app](http://npm-tree.netlify.app).
 
+### Pre-requisites
+
+Requires version of Node 12 or newer and npm 6 or newer. Tested with Node versions 12.18.0 and 14.15.5, npm versions 6.14.4 and 7.6.1
+
 ### Command line
 
 To run it as a command-line tool you can install it globally:
