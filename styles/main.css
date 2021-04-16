@@ -103,6 +103,12 @@ svg.logo {
   padding-right: 20px;
 }
 
+svg.go-icon {
+  height: 15px;
+  width: 15px;
+  stroke: var(--tree-expander);
+}
+
 #search-container {
   position: relative;
 }

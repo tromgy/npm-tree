@@ -1,6 +1,6 @@
 {
   "name": "@tromgy/npm-tree",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A convenience tool on top of 'npm list'. Presents the the dependent packages in a collapsible tree with search and dependency path capabilities.",
   "main": "npm-tee.js",
   "bin": "npm-tree.js",
@@ -34,11 +34,11 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
-    "eslint-plugin-import": "^2.22.1",
     "open": "8.0.2"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.3",
+    "eslint-plugin-import": "^2.22.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3",
     "utf-8-validate": "^5.0.4"
