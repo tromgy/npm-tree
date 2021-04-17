@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+const { configure } = require('@testing-library/dom');
 const dom = require('@testing-library/dom');
 const { default: userEvent } = require('@testing-library/user-event');
 const fs = require('fs');
@@ -10,10 +11,6 @@ const BRANCH_CLOSED_SYMBOL = '+';
 
 let root;
 
-// Object.prototype.scrollIntoView = () => {
-//   console.log('scrolled');
-// };
-
 describe('npm-tree tests', () => {
   // All static page elements
   let expandAll;
@@ -24,14 +21,21 @@ describe('npm-tree tests', () => {
   let findPrev;
   let main;
   let footer;
+  let path;
+  let copyToClipboard;
+  let mockClipboard;
 
   beforeAll(() => {
     const html = fs.readFileSync('./npm-tree.html', 'utf8');
     const jsdom = new JSDOM(html, { runScripts: 'dangerously' });
     root = jsdom.window.document.body;
 
-    // Mock API not avaialable in the test DOM
+    configure({ testIdAttribute: 'id' });
+
+    // Mock APIs not avaialable in the test DOM
     jsdom.window.HTMLElement.prototype.scrollIntoView = jest.fn();
+    mockClipboard = { writeText: jest.fn() };
+    jsdom.window.navigator.clipboard = mockClipboard;
   });
 
   it('has UI', () => {
@@ -64,6 +68,12 @@ describe('npm-tree tests', () => {
 
     footer = dom.getByRole(root, 'contentinfo');
     expect(footer).toBeInTheDocument();
+
+    path = dom.getByTestId(root, 'path');
+    expect(path).toBeInTheDocument();
+
+    copyToClipboard = dom.getByTitle(footer, 'Copy to clipboard');
+    expect(copyToClipboard).toBeInTheDocument();
   });
 
   test('The tree can be expanded', () => {
@@ -133,8 +143,8 @@ describe('npm-tree tests', () => {
         '@tromgy/npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
       const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-      expect(footer).toHaveTextContent(expectedPath);
-      expect(footer).toHaveAttribute('title', expectedToolTip);
+      expect(path).toHaveTextContent(expectedPath);
+      expect(path).toHaveAttribute('title', expectedToolTip);
     });
   });
 
@@ -152,8 +162,8 @@ describe('npm-tree tests', () => {
     const expectedPath = '@tromgy/npm-tree ▷ @testing-library/dom ▷ chalk ▷ supports-color ▷ has-flag';
     const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-    expect(footer).toHaveTextContent(expectedPath);
-    expect(footer).toHaveAttribute('title', expectedToolTip);
+    expect(path).toHaveTextContent(expectedPath);
+    expect(path).toHaveAttribute('title', expectedToolTip);
   });
 
   test('Find previous works', async () => {
@@ -171,8 +181,8 @@ describe('npm-tree tests', () => {
       '@tromgy/npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
     const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-    expect(footer).toHaveTextContent(expectedPath);
-    expect(footer).toHaveAttribute('title', expectedToolTip);
+    expect(path).toHaveTextContent(expectedPath);
+    expect(path).toHaveAttribute('title', expectedToolTip);
   });
 
   test('Search wraps around', async () => {
@@ -190,8 +200,8 @@ describe('npm-tree tests', () => {
     let expectedPath = '@tromgy/npm-tree ▷ jest ▷ @jest/core ▷ jest-snapshot ▷ jest-haste-map';
     let expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-    expect(footer).toHaveTextContent(expectedPath);
-    expect(footer).toHaveAttribute('title', expectedToolTip);
+    expect(path).toHaveTextContent(expectedPath);
+    expect(path).toHaveAttribute('title', expectedToolTip);
 
     // Wrap to the beginning
     userEvent.click(findNext);
@@ -208,8 +218,8 @@ describe('npm-tree tests', () => {
       '@tromgy/npm-tree ▷ @testing-library/dom ▷ @babel/code-frame ▷ @babel/highlight ▷ chalk ▷ supports-color ▷ has-flag';
     expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-    expect(footer).toHaveTextContent(expectedPath);
-    expect(footer).toHaveAttribute('title', expectedToolTip);
+    expect(path).toHaveTextContent(expectedPath);
+    expect(path).toHaveAttribute('title', expectedToolTip);
   });
 
   test('Regexp search works', async () => {
@@ -226,8 +236,8 @@ describe('npm-tree tests', () => {
       const expectedPath = '@tromgy/npm-tree ▷ @testing-library/jest-dom ▷ @types/testing-library__jest-dom';
       const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-      expect(footer).toHaveTextContent(expectedPath);
-      expect(footer).toHaveAttribute('title', expectedToolTip);
+      expect(path).toHaveTextContent(expectedPath);
+      expect(path).toHaveAttribute('title', expectedToolTip);
     });
   });
 
@@ -246,8 +256,8 @@ describe('npm-tree tests', () => {
       const expectedPath = '@tromgy/npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ has';
       const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-      expect(footer).toHaveTextContent(expectedPath);
-      expect(footer).toHaveAttribute('title', expectedToolTip);
+      expect(path).toHaveTextContent(expectedPath);
+      expect(path).toHaveAttribute('title', expectedToolTip);
     });
   });
 
@@ -271,8 +281,8 @@ describe('npm-tree tests', () => {
       '@tromgy/npm-tree ▷ eslint-config-airbnb-base ▷ object.entries ▷ es-abstract ▷ is-negative-zero';
     const expectedToolTip = expectedPath.replace(/▷/g, '>');
 
-    expect(footer).toHaveTextContent(expectedPath);
-    expect(footer).toHaveAttribute('title', expectedToolTip);
+    expect(path).toHaveTextContent(expectedPath);
+    expect(path).toHaveAttribute('title', expectedToolTip);
   });
 
   test('Highlight can be cleared by click', () => {
@@ -284,7 +294,23 @@ describe('npm-tree tests', () => {
 
     const expectedPath = '&nbsp;'; // testing implementation 😬
 
-    expect(footer).toContainHTML(expectedPath);
-    expect(footer).not.toHaveAttribute('title');
+    expect(path).toContainHTML(expectedPath);
+    expect(path).not.toHaveAttribute('title');
+  });
+
+  test('Dependency entires have links', () => {
+    const links = dom.getAllByTitle(root, 'Open this package page in a new tab');
+
+    expect(links.length > 0);
+  });
+
+  test('Path can be copied to clipboard', async () => {
+    const itemToClick = dom.getAllByText(root, 'open')[0];
+
+    userEvent.click(itemToClick);
+
+    userEvent.click(copyToClipboard);
+
+    expect(mockClipboard.writeText).toBeCalledWith('@tromgy/npm-tree > open');
   });
 });
