@@ -32,7 +32,7 @@ or run it via **npx** (also in your project directory):
 
 When you run it, it will create an HTML file containing the same dependency information as the output from **npm list**, but in a collapsible, searchable tree and display this HTML file in your default browser:
 
-<img alt="screen-1" src="https://user-images.githubusercontent.com/12632548/113201324-5f05bc00-9237-11eb-9a6b-8b7e56fd6983.png">
+<img alt="npm-tree in a browser" src="https://user-images.githubusercontent.com/12632548/115122684-43184f00-9f87-11eb-9ec1-dfd8dd238da4.png">
 
 This file is removed automatically once it's loaded in the browser.
 
@@ -40,6 +40,6 @@ This file is removed automatically once it's loaded in the browser.
 
 To use it online, you can just drop the text file containing the output from **npm list** or **yarn list**:
 
-<img alt="screen-2" src="https://user-images.githubusercontent.com/12632548/113152299-ff41ed80-9203-11eb-9ba5-d0e4e1964b91.png">
+<img alt="npm-tree on Netlify" src="https://user-images.githubusercontent.com/12632548/115122744-84106380-9f87-11eb-8601-43fe7ce5c2f7.png">
 
 It will be processed right in the browser and the same searchable tree will be shown.
