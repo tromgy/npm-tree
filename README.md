@@ -1,5 +1,8 @@
 # npm-tree
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2108c3a3-4da9-4db6-9897-a4c086c9234a/deploy-status)](https://app.netlify.com/sites/npm-tree/deploys)
+
+
 A tool to aid in analyzing npm (or yarn) package dependencies.
 
 ## Usage
