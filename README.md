@@ -36,6 +36,20 @@ When you run it, it will create an HTML file containing the same dependency info
 
 This file is removed automatically once it's loaded in the browser.
 
+If you want to keep the file and open it later, use the **--save** option:
+
+```Shell
+    npm-tree --save
+```
+
+#### A caveat for Windows systems
+
+If you use drive mapping via the **subst** command on Windows and try to run **npm-tree** from such mapped drive, it will not be able to open your default browser unless you also add the correspoding mapping to the following registry key:
+
+```text
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\DOS Devices]
+```
+
 ### Online
 
 To use it online, you can just drop the text file containing the output from **npm list** or **yarn list**:
